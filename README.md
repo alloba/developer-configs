@@ -1,5 +1,5 @@
 # developer-environment-configs
 
-This is a general place to store configuration files or maybe scripts that are useful during development. 
-Think bash configs and backup script type stuff. 
-ALSO im putting bash history in here. close enough.
+This is a place to store configurations that are common across any project or work station, that I wouldn't care to lose track of. 
+Primarily for now, this means vim and bash configs. Although possibly server settings or intellij profiles or whatever else.  
+
