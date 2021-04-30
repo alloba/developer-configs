@@ -32,7 +32,7 @@ set noerrorbells            "turn off system beep. pls. T_T
 ""set visualbells           "flash screen instead of beeping
 set mouse=a                 "enable mouse for scrolling and resizing
 set title                   "change window title to current file
-""set background=dark       "use colors suitable for dark background
+set background=dark       "use colors suitable for dark background
 
 " code folding options
 set foldmethod=indent
@@ -42,3 +42,12 @@ set foldmethod=indent
 set history=500
 ""set spell                 "spell checking
 
+
+" Vim Plugins (vim-plug)
+call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox'
+call plug#end()
+
+" Theme
+autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme gruvbox
