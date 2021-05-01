@@ -49,7 +49,8 @@ Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 call plug#end()
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 " Theme
 autocmd vimenter * ++nested colorscheme gruvbox
-colorscheme gruvbox
+"colorscheme gruvbox
