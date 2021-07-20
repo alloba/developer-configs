@@ -56,8 +56,10 @@ call plug#end()
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 filetype plugin on
-"allow markdown to render in markdown files (vim-instant-markdown)
+" allow markdown to render in markdown files (vim-instant-markdown)
 let g:instant_markdown_mermaid = 1
+" start :InstantMarkdownPreview || stop :InstantMarkdownStop
+let g:instant_markdown_autostart = 0
 
 
 " Theme
