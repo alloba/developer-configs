@@ -35,7 +35,7 @@ set title                   "change window title to current file
 set background=dark         "use colors suitable for dark background
 
 " code folding options
-set foldmethod=indent
+""set foldmethod=indent
 ""set foldnestmax=3
 
 " misc options
@@ -44,13 +44,27 @@ set history=500
 
 
 " Vim Plugins (vim-plug)
+" instant-markdown expects a node server to run with the plugin. 
+" (`npm -g install instant-markdown-d`)
+"
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
+Plug 'instant-markdown/vim-instant-markdown' 
 call plug#end()
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+filetype plugin on
+"allow markdown to render in markdown files (vim-instant-markdown)
+let g:instant_markdown_mermaid = 1
+
 
 " Theme
 autocmd vimenter * ++nested colorscheme gruvbox
 "colorscheme gruvbox
+
+nnoremap <S-Down> :m+<CR>
+nnoremap <S-Up> :m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
