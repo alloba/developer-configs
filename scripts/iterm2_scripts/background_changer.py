@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.7
 
+import os
 from os import listdir
 from os.path import isfile, join, expanduser
 import random
@@ -30,11 +31,16 @@ async def main(connection):
     @iterm2.RPC
     async def change_image(session_id):
         profile = await get_profile_for_session(session_id)
-        # await profile.async_set_blend(min(1, profile.blend + 0.1))
 
-        background_files = [PATH + f for f in listdir(PATH) if isfile(join(PATH, f)) and f.endswith(tuple(SUPPORTED_FORMATS))]
+        files_first_pass = []
+        for root, dirs, files in os.walk(PATH):
+            for file in files:
+                files_first_pass.append(file)
+
+
+        background_files = [PATH + f for f in files_first_pass if isfile(join(PATH, f)) and f.endswith(tuple(SUPPORTED_FORMATS))]
         random_image = random.choice(background_files)
-        print(random_image)
+        print(f'Loaded ${random_image} out of a possible ${len(background_files)} options found in ${PATH}, and nested directories.')
         await profile.async_set_background_image_location(random_image)
 
     await change_image.async_register(connection)
