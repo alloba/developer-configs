@@ -35,10 +35,10 @@ async def main(connection):
         files_first_pass = []
         for root, dirs, files in os.walk(PATH):
             for file in files:
-                files_first_pass.append(file)
-
-
-        background_files = [PATH + f for f in files_first_pass if isfile(join(PATH, f)) and f.endswith(tuple(SUPPORTED_FORMATS))]
+                files_first_pass.append(os.path.join(root, file))
+        
+        
+        background_files = [f for f in files_first_pass if isfile(f) and f.endswith(tuple(SUPPORTED_FORMATS))]
         random_image = random.choice(background_files)
         print(f'Loaded ${random_image} out of a possible ${len(background_files)} options found in ${PATH}, and nested directories.')
         await profile.async_set_background_image_location(random_image)
