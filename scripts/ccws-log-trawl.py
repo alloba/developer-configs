@@ -20,11 +20,9 @@ if sys.argv[1] == 'helpme' or sys.argv[1] == 'help':
 
 search_target = sys.argv[1]
 today = date.today()
-grep_comm = 'grep'
 formatted_today = today.strftime('%m.%d.%Y')
 if len(sys.argv) > 2: # allow passed in date
     formatted_today = sys.argv[2]
-    grep_comm = 'zgrep'
 
 #print(search_target)
 #print(today)
@@ -40,7 +38,7 @@ for i in [301,302,303,304]:
     server_name = 'ccws-{server_name}.staging.clearcaptions.com'.format(server_name=i)
     
     print('Log Section for {server_name}:'.format(server_name = server_name))
-    output = os.popen('ssh alex.bates@{server_name} {grep} -A2 -B2 {search_target} /var/www/vhosts/webservices/logs/ccws.{format_time}.log'.format(server_name = server_name, grep=grep_comm, search_target=search_target, format_time = formatted_today))
+    output = os.popen('ssh alex.bates@{server_name} zgrep -A2 -B2 {search_target} /var/www/vhosts/webservices/logs/ccws.{format_time}.log'.format(server_name = server_name, search_target=search_target, format_time = formatted_today))
     final_output += output.read() + '\n'
 
     print("/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/")
