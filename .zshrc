@@ -84,12 +84,12 @@ if ! command -v jenv  &> /dev/null; then
     eval "$(jenv init -)"
 fi
 
-#optional python setup (installed via brew)
-if ! command -v python  &> /dev/null; then 
-    export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-fi
+#python config (installed via brew). Force the new version of python (away from 2)
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # custom notes config. Expect to fiddle with this if moved to a new machine that doesn't mirror directories exactly. 
-export PATH="$HOME/projects/documentation/scripts:$PATH" # Script to edit and commit daily notes. 
-alias notes="bash_integration.sh"                        # 
+#export PATH="$HOME/projects/documentation/scripts:$PATH" # Script to edit and commit daily notes. 
+alias notes="python ${HOME}/projects/documentation/scripts/note_section_generator.py"
+# 
 
+eval "$(pyenv init --path)"
