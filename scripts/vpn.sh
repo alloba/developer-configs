@@ -7,7 +7,8 @@ password=`cat ~/.work_password`
 
 
 # anyconnect version
-exe_path="/mnt/c/Program Files (x86)/Cisco/Cisco AnyConnect Secure Mobility Client/vpncli.exe"
+#exe_path="/mnt/c/Program Files (x86)/Cisco/Cisco AnyConnect Secure Mobility Client/vpncli.exe"
+exe_path='/mnt/c/Program Files (x86)/Cisco/Cisco AnyConnect Secure Mobility Client/vpncli.exe'
 command_string="connect ssl.clearcaptions.com\n1\nalex.bates\n${password}"
 
 if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
