@@ -44,11 +44,15 @@ nnoremap <S-Up> :m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 
+"""The terminal emulator is cool, but how dare they not maintain Esc behavior
+tnoremap <esc> <C-\><C-N>
+
 "" Vim Plug configuration / plugins list. 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'folke/tokyonight.nvim', { 'branch':'main' }
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 """ Plugin key mapping
