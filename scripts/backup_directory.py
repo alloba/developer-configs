@@ -35,9 +35,9 @@ output_directory = os.path.abspath(output_directory)
 
 
 # directories to skip during directory walk (zero out early to speed things up)
-skip_scan_folders = ['.git', '.idea', 'terraform', 'venv']
+skip_scan_folders = ['.git', '.idea', 'terraform', 'venv', '.npm']
 # patterns to skip when copying files to destination.
-skip_copy_patterns = ['.terraform*', 'venv*', 'botocore*', '.minikube*', '.sdkman*', '.m2/repositories*', '.cache*']
+skip_copy_patterns = ['.terraform*', 'venv*', 'botocore*', '.minikube*', '.sdkman*', '.m2/repositories*', '.cache*', '.npm/*']
 
 for root, dirs, files in os.walk(source_directory, topdown=True):
     current_dir = root.removeprefix(source_directory)
