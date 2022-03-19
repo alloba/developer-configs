@@ -2,10 +2,10 @@
 
 # Automatically convert all files in a directory 
 # To Unix-friendly line endings. 
-# Apprently this is going to be an issue in my life now, 
-# since git and WSL feel like getting fresh with me lately... 
+# Apparently this is going to be an issue in my life now, 
+# since git and WSL feel like getting fresh with me lately...   
 #
-# Requies dos-2-unix be installed. 
+# Requires dos-2-unix be installed. 
 
 if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     echo "line-fixer.sh {folder_path} to convert all in folder."
