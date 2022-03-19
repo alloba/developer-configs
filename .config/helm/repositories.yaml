@@ -1,0 +1,12 @@
+apiVersion: ""
+generated: "0001-01-01T00:00:00Z"
+repositories:
+- caFile: ""
+  certFile: ""
+  insecure_skip_tls_verify: false
+  keyFile: ""
+  name: clearcaptions
+  pass_credentials_all: false
+  password: HBSzqf93Sf9wCQ
+  url: https://nexus.dev.clearcaptions.com/repository/clearcaptions-helm
+  username: alex.bates
