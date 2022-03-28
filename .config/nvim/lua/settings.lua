@@ -46,6 +46,8 @@ vim.o.background = 'dark'
 vim.opt.termguicolors = true
 vim.cmd([[colorscheme tokyonight]])
 
+-- Mouse Control
+vim.o.mouse = 'a'
 
 -- Key Bindings
 vim.api.nvim_set_keymap( 'n', '<S-Down>', ':m+<CR>',            { noremap = true }) -- nnoremap <S-Down> :m+<CR>
