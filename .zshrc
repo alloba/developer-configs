@@ -111,7 +111,7 @@ VISUAL=$EDITOR
 
 alias idea="idea64.exe"
 alias vpn="vpn.sh"
-alias wsl-action="python3 -B ~/projects/developer-environment-configs/scripts/wsl-profile-changer/wsl-profile-changer.py"
+alias wsl-action="python3 -B ~/projects/wsl-profile-editor/wsl-profile-editor.py"
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
