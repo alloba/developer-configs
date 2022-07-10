@@ -36,7 +36,8 @@ They good.
 I use Packer to handle all plugins/external resources.
 Things should be pretty nicely set up to where all you have to do is follow the 
 [installation instructions](https://github.com/wbthomason/packer.nvim) 
-and then run `:PackerSync`
+and then run `:PackerSync`  
+*entirely untested, but you might not even need to run the installation, with how it's been set up now*
 
 ## Config Layout 
 NeoVim is pretty respectful of the default vim configuration. 

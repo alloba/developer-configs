@@ -33,3 +33,22 @@ vim.opt.smartcase = true -- Do not ignore case if capital letters are used in th
 vim.opt.mouse = 'a' -- enable mouse in modes. a = all modes.
 vim.opt.termguicolors = true
 
+
+-- Shell setup
+-- Getting powershell to work is a bit involved... 
+if vim.fn.executable('pwsh') == 1 then 
+	windows_terminal = 'pwsh'
+else 
+	if vim.fn.executable('powershell') == 1 then 
+		windows_terminal = 'powershell' 
+	end
+end
+
+if windows_terminal then 
+	vim.opt.shell = windows_terminal
+	vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+	vim.opt.shellredir= '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+	vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+ 	vim.opt.shellquote=nil 
+    vim.opt.shellxquote=nil 
+end
