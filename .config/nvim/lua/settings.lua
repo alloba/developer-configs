@@ -32,7 +32,11 @@ vim.opt.smartcase = true -- Do not ignore case if capital letters are used in th
 -- Misc
 vim.opt.mouse = 'a' -- enable mouse in modes. a = all modes.
 vim.opt.termguicolors = true
-
+vim.opt.hidden = true -- close empty buffers? i think? 
+vim.opt.cmdheight = 2
+vim.opt.updatetime = 300
+vim.opt.shortmess = 'filnxtToOFc' -- shorten messages. this is the default, except for the addition of 'c' (hide ins-completion-menu messages)
+vim.opt.signcolumn = 'number'
 
 -- Shell setup
 -- Getting powershell to work is a bit involved... 
