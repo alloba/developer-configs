@@ -1,21 +1,5 @@
--- Setup Instructions: 
--- - Install Packer. GitHub has fine instructions. 
-
--- Files underneath the lua folder, executed directly. 
-require('plugins')
+--print('Load init.lua')
 require('settings')
+require('keybinds')
 
--- LSP Zero is all about language server stuff. 
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-lsp.nvim_workspace()
-lsp.setup()
-
-
-
-
-
-
-
-
-
+require('plugins.main')
