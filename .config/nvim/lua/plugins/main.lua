@@ -13,10 +13,11 @@ return require('packer').startup({
         use { "wbthomason/packer.nvim" } -- packer needs to know about itself to avoid deletion during PackerSync
 
         -- To Evaulate:
-        -- LSP/config/lang servers -- Complicated stuff to set up. Havent decided if it is worth it yet.
         -- nvim autopairs -- automatically add closing braces and brackes and stuff.
         -- gitsigns -- git change detection and blame
 
+        -- CoC is the LSP path that I've gone with.
+        -- This is instead of manually setting everything up myself. Which is not worth.
         use {
             'neoclide/coc.nvim',
             branch = 'release',
@@ -32,6 +33,7 @@ return require('packer').startup({
             config = function() require('plugins.config.telescope') end
         }
 
+        -- File system viewer
         use {
             'kyazdani42/nvim-tree.lua',
             branch = 'master',
@@ -39,10 +41,19 @@ return require('packer').startup({
             config = function() require('plugins.config.nvimtree') end
         }
 
+        -- Persistent terminal / multiple terminals.
         use {
             'akinsho/toggleterm.nvim',
             tag = 'v1.*',
             config = function() require('plugins.config.toggleterm') end
+        }
+
+        -- Nice markdown renderer. 
+        -- On windows, you must install glow separately. Once it is on the path it works fine. 
+        -- For other platforms, just run :GlowInstall
+        use {
+            'ellisonleao/glow.nvim',
+            branch = 'main',
         }
 
 
