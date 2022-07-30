@@ -48,15 +48,20 @@ return require('packer').startup({
             config = function() require('plugins.config.toggleterm') end
         }
 
-        -- Nice markdown renderer. 
-        -- On windows, you must install glow separately. Once it is on the path it works fine. 
+        -- Nice markdown renderer.
+        -- On windows, you must install glow separately. Once it is on the path it works fine.
         -- For other platforms, just run :GlowInstall
         use {
             'ellisonleao/glow.nvim',
             branch = 'main',
         }
 
-
+        -- Add matching closing parens/brackets to text.
+        use {
+            'windwp/nvim-autopairs',
+            branch = 'master',
+            config = function() require('plugins.config.autopairs') end
+        }
 
 
         -- Themes (set disable = false for whichever is in use)
