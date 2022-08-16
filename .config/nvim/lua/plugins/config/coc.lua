@@ -1,23 +1,14 @@
-vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>CocCommand<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>CocCommand<cr>',
+    { noremap = true })
+
+-- Tab and shift-tab to move around the auto-suggestion popup
+vim.api.nvim_set_keymap('i', '<Tab>', 'coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "<Tab>" : coc#refresh()'
+    , { noremap = true, expr = true })
+
+vim.api.nvim_set_keymap('i', '<S-Tab>', 'coc#pum#visible() ? coc#pum#prev(1) : "<S-Tab>"',
+    { noremap = true, expr = true })
 
 
-vim.cmd([[
-inoremap <silent><expr> <c-space> coc#refresh() 
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                        \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-
-nnoremap <silent> K :call ShowDocumentation()<CR>
-function! ShowDocumentation()
-    if CocAction('hasProvider', 'hover')
-        call CocActionAsync('doHover')
-    else
-        call feedkeys('K', 'in')
-    endif
-endfunction
-]])
+-- Enter to confirm suggestion in popup
+vim.api.nvim_set_keymap('i', '<CR>', 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR>"',
+    { noremap = true, expr = true, silent = true })
