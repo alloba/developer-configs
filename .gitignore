@@ -1,1 +1,3 @@
 .idea
+# packer folder
+.config/plugin
