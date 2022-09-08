@@ -64,12 +64,17 @@ return require('packer').startup({
         }
 
 
-        -- Themes (set disable = false for whichever is in use)
         use {
             'NLKNguyen/papercolor-theme',
             branch = 'master',
             config = function() require('plugins.config.papercolor') end,
-            disable = false
+            disable = true 
+        }
+        use {
+            'morhetz/gruvbox',
+            branch = 'master',
+            config = function() require('plugins.config.gruvbox') end,
+            disable = false 
         }
         ------------------------------------------------
 
