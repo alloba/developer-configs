@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', 'coc#pum#visible() ? coc#pum#prev(1) : "
 
 
 -- Enter to confirm suggestion in popup
-vim.api.nvim_set_keymap('i', '<CR>', 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR>"',
+-- <C-g>u fucks undo a bit, but I've decided to not care. 
+vim.api.nvim_set_keymap('i', '<CR>', 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><c-r>=coc#on_enter()<CR>"',
     { noremap = true, expr = true, silent = true })
 
