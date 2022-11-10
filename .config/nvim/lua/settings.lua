@@ -43,6 +43,8 @@ vim.opt.signcolumn = 'number'
 local osName = vim.loop.os_uname().sysname
 if osName == "Windows_NT" or osName == "Darwin" then
     vim.cmd 'set clipboard=unnamed'
+elseif osName == "Linux" then
+    vim.cmd 'set clipboard=unnamedplus' 
 else
     print("WARN: settings.lua: running on unrecognized OS - setting clipboard=unnamedplus. Detected OS=" .. osName)
     vim.cmd 'set clipboard=unnamedplus'
