@@ -29,6 +29,17 @@ vim.opt.incsearch = true -- immediately start searching while typing
 vim.opt.ignorecase = true
 vim.opt.smartcase = true -- Do not ignore case if capital letters are used in the search term.
 
+-- Spelling 
+vim.opt.spelllang = "en"
+
+local spellfile_location = os.getenv('XDG_CONFIG_HOME') .. "/nvim/spell/custom-general.utf-8.add"
+local f=io.open( spellfile_location, "r" )
+if f == nil then
+    print('WARN: spellfile not found in location' .. spellfile_location .. ', custom spellfile is not set.')
+else
+    vim.opt.spellfile = spellfile_location
+end
+
 -- Misc
 vim.opt.mouse = 'a' -- enable mouse in modes. a = all modes.
 vim.opt.termguicolors = true
@@ -43,8 +54,6 @@ vim.opt.signcolumn = 'number'
 local osName = vim.loop.os_uname().sysname
 if osName == "Windows_NT" or osName == "Darwin" then
     vim.cmd 'set clipboard=unnamed'
-elseif osName == "Linux" then
-    vim.cmd 'set clipboard=unnamedplus' 
 else
     print("WARN: settings.lua: running on unrecognized OS - setting clipboard=unnamedplus. Detected OS=" .. osName)
     vim.cmd 'set clipboard=unnamedplus'

@@ -68,13 +68,13 @@ return require('packer').startup({
             'NLKNguyen/papercolor-theme',
             branch = 'master',
             config = function() require('plugins.config.papercolor') end,
-            disable = true 
+            disable = false  
         }
         use {
-            'morhetz/gruvbox',
-            branch = 'master',
+            'ellisonleao/gruvbox.nvim',
+            branch = 'main',
             config = function() require('plugins.config.gruvbox') end,
-            disable = false 
+            disable = true 
         }
         ------------------------------------------------
 
