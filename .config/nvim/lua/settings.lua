@@ -39,7 +39,7 @@ vim.opt.smartcase = true -- Do not ignore case if capital letters are used in th
 -- Spelling 
 vim.opt.spelllang = "en"
 
-local config_dir = os.getenv('XDC_CONFIG_HOME')
+local config_dir = os.getenv('XDG_CONFIG_HOME')
 if config_dir ~= nil then 
     local spellfile_location = config_dir .. "/nvim/spell/custom-general.utf-8.add"
     local f=io.open( spellfile_location, "r" )
