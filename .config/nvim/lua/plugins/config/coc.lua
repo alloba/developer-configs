@@ -14,3 +14,5 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', 'coc#pum#visible() ? coc#pum#prev(1) : "
 vim.api.nvim_set_keymap('i', '<CR>', 'coc#pum#visible() ? coc#pum#confirm() : "<C-g>u<CR><c-r>=coc#on_enter()<CR>"',
     { noremap = true, expr = true, silent = true })
 
+vim.g.coc_global_extensions = {'coc-prettier', 'coc-sumneko-lua', 'coc-python', 'coc-json'}
+--{'coc-prettier', 'coc-sumneko-lua', 'coc-html', 'coc-tsserver', 'coc-python', 'coc-json', 'coc-go'}
