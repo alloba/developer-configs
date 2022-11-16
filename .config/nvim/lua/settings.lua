@@ -11,6 +11,13 @@ vim.opt.tabstop = 4 -- how many spaces does a tab count as
 vim.opt.shiftwidth = 4 -- number of spaces used for an (auto)indent
 vim.opt.expandtab = true -- convert tabs to spaces
 
+-- Folding 
+vim.g.markdown_folding = 1 -- markdown folding is off by default. which boggles my mind. 
+vim.g.markdown_enable_folding = 1
+vim.opt.foldmethod = 'syntax' -- vs manually defined areas, or indentation level defined areas 
+vim.opt.foldcolumn = '0' -- columns to the left of the screen that show indentation levels. 0 keeps them off so they dont take up screen space.
+vim.opt.foldlevel = 99 -- depth to begin default folding. 0=everything, 1=after the first layer, etc. 
+
 -- View Behavior
 vim.opt.showmatch = true -- show matching brackets. cursor will briefly jump to it
 vim.opt.scrolloff = 3 -- number of rows to offset the cursor from the edge of the screen, when scrolling
