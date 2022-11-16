@@ -11,12 +11,12 @@ vim.opt.tabstop = 4 -- how many spaces does a tab count as
 vim.opt.shiftwidth = 4 -- number of spaces used for an (auto)indent
 vim.opt.expandtab = true -- convert tabs to spaces
 
--- Folding 
-vim.g.markdown_folding = 1 -- markdown folding is off by default. which boggles my mind. 
+-- Folding
+vim.g.markdown_folding = 1 -- markdown folding is off by default. which boggles my mind.
 vim.g.markdown_enable_folding = 1
-vim.opt.foldmethod = 'syntax' -- vs manually defined areas, or indentation level defined areas 
+vim.opt.foldmethod = 'syntax' -- vs manually defined areas, or indentation level defined areas
 vim.opt.foldcolumn = '0' -- columns to the left of the screen that show indentation levels. 0 keeps them off so they dont take up screen space.
-vim.opt.foldlevel = 99 -- depth to begin default folding. 0=everything, 1=after the first layer, etc. 
+vim.opt.foldlevel = 99 -- depth to begin default folding. 0=everything, 1=after the first layer, etc.
 
 -- View Behavior
 vim.opt.showmatch = true -- show matching brackets. cursor will briefly jump to it
@@ -36,21 +36,21 @@ vim.opt.incsearch = true -- immediately start searching while typing
 vim.opt.ignorecase = true
 vim.opt.smartcase = true -- Do not ignore case if capital letters are used in the search term.
 
--- Spelling 
+-- Spelling
 vim.opt.spelllang = "en"
 
 local config_dir = os.getenv('XDG_CONFIG_HOME')
-if config_dir ~= nil then 
+if config_dir ~= nil then
     local spellfile_location = config_dir .. "/nvim/spell/custom-general.utf-8.add"
-    local f=io.open( spellfile_location, "r" )
+    local f = io.open(spellfile_location, "r")
     if f == nil then
         print('WARN: spellfile not found in location' .. spellfile_location .. ', custom spellfile is not set.')
     else
         vim.opt.spellfile = spellfile_location
     end
-else 
+else
     print('WARN: XDG_CONFIG_HOME not set, spellfile not set')
-end 
+end
 
 -- Misc
 vim.opt.mouse = 'a' -- enable mouse in modes. a = all modes.
@@ -66,7 +66,7 @@ vim.opt.signcolumn = 'number'
 local osName = vim.loop.os_uname().sysname
 if osName == "Windows_NT" or osName == "Darwin" then
     vim.cmd 'set clipboard=unnamed'
-elseif osName == "Linux" then 
+elseif osName == "Linux" then
     vim.cmd 'set clipboard=unnamedplus'
 else
     print("WARN: settings.lua: running on unrecognized OS - setting clipboard=unnamedplus. Detected OS=" .. osName)
