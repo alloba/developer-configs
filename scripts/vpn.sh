@@ -1,3 +1,7 @@
+### This was very briefly useful, but now not really at all. 
+### But i'll keep it around just in case 
+
+
 #!/bin/bash
 
 password=`cat ~/.work_password`
