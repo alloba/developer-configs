@@ -42,9 +42,10 @@ return require('packer').startup({
         }
 
         -- Persistent terminal / multiple terminals.
+        -- It's suggested to specify major version tags. So keep updates in mind if errors start happening. 
         use {
             'akinsho/toggleterm.nvim',
-            tag = 'v1.*',
+            tag = 'v2.*',
             config = function() require('plugins.config.toggleterm') end
         }
 
