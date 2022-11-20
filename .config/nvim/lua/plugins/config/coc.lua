@@ -1,5 +1,6 @@
 vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>CocCommand<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<cmd>call CocAction("format")<cr>',    { noremap = true })
+vim.api.nvim_set_keymap('i', '<C-l>', '<cmd>call CocAction("format")<cr>',    { noremap = true })
 
 -- Tab and shift-tab to move around the auto-suggestion popup
 vim.api.nvim_set_keymap('i', '<Tab>', 'coc#pum#visible() ? coc#pum#next(1) : "<Tab>"'
