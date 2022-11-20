@@ -1,6 +1,5 @@
 {
-    "Lua.telemetry.enable": false,
-    "Lua.diagnostics.globals": [
-        "vim"
-    ]
+  "suggest.noselect": true,
+  "Lua.telemetry.enable": false,
+  "Lua.diagnostics.globals": ["vim"]
 }
