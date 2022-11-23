@@ -92,3 +92,12 @@ if windows_terminal then
     vim.opt.shellquote = nil
     vim.opt.shellxquote = nil
 end
+
+-- Formatting changes when dealing with yaml files. 
+-- also too lazy to convert to lua
+vim.cmd [[ 
+augroup yaml_fix
+    autocmd!
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+augroup END
+]]
