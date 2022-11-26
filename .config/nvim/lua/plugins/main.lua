@@ -63,20 +63,28 @@ return require('packer').startup({
             branch = 'master',
             config = function() require('plugins.config.autopairs') end
         }
+        use {
+            'akinsho/bufferline.nvim',
+            branch = 'main',
+            tag = 'v3.*',
+            requires = {'nvim-tree/nvim-web-devicons', branch='main'},
+            config = function() require('bufferline').setup{} end
+        }
 
 
         use {
             'NLKNguyen/papercolor-theme',
             branch = 'master',
             config = function() require('plugins.config.papercolor') end,
-            disable = false  
+            disable = false
         }
         use {
             'ellisonleao/gruvbox.nvim',
             branch = 'main',
             config = function() require('plugins.config.gruvbox') end,
-            disable = true 
+            disable = true
         }
+
         ------------------------------------------------
 
         -- If bootstrap triggered, sync packer. This must be the last thing that executes in this function
