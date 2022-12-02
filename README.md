@@ -5,9 +5,9 @@ Turns out I don't have overly much to cart between locations config wise. :P
 
 A couple of helper scripts and my neovim configuration.
 
-#Setup Instructions
+# Setup Instructions
 
-###Global Rules
+### Global Rules
 
 - Ensure the `XDG_CONFIG_HOME` directory is set as expected.
   In my case, I always want it at `~/.config/`
