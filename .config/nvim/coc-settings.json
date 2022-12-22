@@ -1,5 +1,6 @@
 {
   "suggest.noselect": true,
   "Lua.telemetry.enable": false,
-  "Lua.diagnostics.globals": ["vim"]
+  "Lua.diagnostics.globals": ["vim"],
+  "sumneko-lua.enableNvimLuaDev": true 
 }
