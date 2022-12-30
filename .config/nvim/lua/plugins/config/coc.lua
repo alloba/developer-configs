@@ -7,10 +7,15 @@ vim.g.coc_global_extensions = { 'coc-prettier', 'coc-sumneko-lua', 'coc-python',
 -- Shortcuts 
 --
 vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>CocCommand<cr>', { noremap = true })
-
 vim.api.nvim_set_keymap('n', '<C-l>', '<cmd>call CocAction("format")<cr>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-l>', '<cmd>call CocAction("format")<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', {noremap = true})
 
+
+---
+-- Tab and shift tab to cycle though completion suggestions 
+---
 vim.api.nvim_set_keymap(
     'i', '<Tab>',
     'coc#pum#visible() ? coc#pum#next(1) : "<Tab>"',
@@ -38,6 +43,9 @@ vim.api.nvim_set_keymap(
     'coc#pum#visible() ? coc#pum#confirm(): "<C-g>u<CR><c-r>=coc#on_enter()<CR>"',
     { noremap = true, expr = true, silent = true }
 )
+---
+--
+---
 
 -- Use K to show documentation in preview window.
 function _G.show_docs()
