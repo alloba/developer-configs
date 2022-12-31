@@ -11,6 +11,14 @@ return require('packer').startup({
         -- Packer
         use { "wbthomason/packer.nvim" } -- self-updating packer (and proper tracking behavior)
 
+        -- Tree sitter for highlighting.
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            branch = 'master',
+            config = function() require('plugins.config.treesitter') end,
+            run = 'TSUpdate',
+        }
+
         -- LSP+completions via lsp-zero.
         use {
             'VonHeikemen/lsp-zero.nvim',
