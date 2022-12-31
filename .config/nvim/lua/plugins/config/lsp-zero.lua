@@ -19,12 +19,13 @@ lsp.setup_nvim_cmp({
 
 lsp.setup()
 
+lsp.on_attach(function(client, bufnr)
+    -- Shortcuts
+    vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { remap = false })
+    vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, { remap = false })
+    vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, { remap = false })
+    vim.keymap.set('n', '<C-h>', function() vim.diagnostic.open_float() end, { remap = false })
 
--- Shortcuts
-vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, { remap = false })
-vim.keymap.set('n', 'gi', function() vim.lsp.buf.implementation() end, { remap = false })
-vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, { remap = false })
-vim.keymap.set('n', '<C-h>', function() vim.diagnostic.open_float() end, { remap = false })
-
-vim.keymap.set('n', '<C-l>', function() vim.lsp.buf.format() end, { remap = false })
-vim.keymap.set('i', '<C-l>', function() vim.lsp.buf.format() end, { remap = false })
+    vim.keymap.set('n', '<C-l>', function() vim.lsp.buf.format() end, { remap = false })
+    vim.keymap.set('i', '<C-l>', function() vim.lsp.buf.format() end, { remap = false })
+end)
