@@ -32,6 +32,11 @@ return require('packer').startup({
             requires = { { 'nvim-lua/plenary.nvim', branch = 'master' } },
             config = function() require('plugins.config.telescope') end
         }
+        -- coc integration with telescope 
+        use {
+            'fannheyward/telescope-coc.nvim',
+            branch = 'master',
+        }
 
         -- File system viewer
         use {

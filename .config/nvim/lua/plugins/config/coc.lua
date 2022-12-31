@@ -9,10 +9,15 @@ vim.g.coc_global_extensions = { 'coc-prettier', 'coc-sumneko-lua', 'coc-python',
 vim.api.nvim_set_keymap('n', '<leader>gg', '<cmd>CocCommand<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<cmd>call CocAction("format")<cr>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-l>', '<cmd>call CocAction("format")<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', {noremap = true})
-vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', {noremap = true})
-vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', {noremap = true})
 
+--vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', {noremap = true})
+--vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', {noremap = true})
+--vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', {noremap = true})
+
+-- preferring telescope coc integration shortcuts to the defaults above. 
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>Telescope coc definitions<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gi', '<cmd>Telescope coc implementations<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gr', '<cmd>Telescope coc references<CR>', {noremap = true})
 
 ---
 -- Tab and shift tab to cycle though completion suggestions 
