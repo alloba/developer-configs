@@ -11,6 +11,30 @@ return require('packer').startup({
         -- Packer
         use { "wbthomason/packer.nvim" } -- self-updating packer (and proper tracking behavior)
 
+        -- LSP+completions via lsp-zero.
+        use {
+            'VonHeikemen/lsp-zero.nvim',
+            requires = {
+                -- LSP Support
+                { 'neovim/nvim-lspconfig' },
+                { 'williamboman/mason.nvim' },
+                { 'williamboman/mason-lspconfig.nvim' },
+
+                -- Autocompletion
+                { 'hrsh7th/nvim-cmp' },
+                { 'hrsh7th/cmp-buffer' },
+                { 'hrsh7th/cmp-path' },
+                { 'saadparwaiz1/cmp_luasnip' },
+                { 'hrsh7th/cmp-nvim-lsp' },
+                { 'hrsh7th/cmp-nvim-lua' },
+
+                -- Snippets
+                { 'L3MON4D3/LuaSnip' },
+                { 'rafamadriz/friendly-snippets' },
+            },
+            config = function() require('plugins.config.lsp-zero') end
+        }
+
         -- Telescope is a fuzzy finder tool.
         -- Requires ripgrep to be installed on the machine for full functionality.
         use {
@@ -29,7 +53,7 @@ return require('packer').startup({
         }
 
         -- Persistent terminal / multiple terminals.
-        -- It's suggested to specify major version tags. So keep updates in mind if errors start happening. 
+        -- It's suggested to specify major version tags. So keep updates in mind if errors start happening.
         use {
             'akinsho/toggleterm.nvim',
             tag = 'v2.*',
@@ -51,17 +75,17 @@ return require('packer').startup({
             config = function() require('plugins.config.autopairs') end
         }
 
-        -- Show list of open buffers on edge of screen 
+        -- Show list of open buffers on edge of screen
         use {
             'akinsho/bufferline.nvim',
             branch = 'main',
             tag = 'v3.*',
-            requires = {'nvim-tree/nvim-web-devicons', branch='main'},
-            config = function() require('bufferline').setup{} end
+            requires = { 'nvim-tree/nvim-web-devicons', branch = 'main' },
+            config = function() require('bufferline').setup {} end
         }
 
         -- Themes
-        -- Flip the disabled flag on whichever you want to use. 
+        -- Flip the disabled flag on whichever you want to use.
         use {
             'NLKNguyen/papercolor-theme',
             branch = 'master',
