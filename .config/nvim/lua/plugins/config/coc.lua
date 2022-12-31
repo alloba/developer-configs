@@ -11,6 +11,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<cmd>call CocAction("format")<cr>', { nor
 vim.api.nvim_set_keymap('i', '<C-l>', '<cmd>call CocAction("format")<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', {noremap = true})
 vim.api.nvim_set_keymap('n', 'gi', '<Plug>(coc-implementation)', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gr', '<Plug>(coc-references)', {noremap = true})
 
 
 ---
