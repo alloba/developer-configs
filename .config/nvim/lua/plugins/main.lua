@@ -1,8 +1,7 @@
 -- Bootstrap Packer automatically.
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    packer_bootstrap = vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
         install_path })
 end
 --
@@ -10,19 +9,7 @@ end
 return require('packer').startup({
     function(use)
         -- Packer
-        use { "wbthomason/packer.nvim" } -- packer needs to know about itself to avoid deletion during PackerSync
-
-        -- To Evaulate:
-        -- nvim autopairs -- automatically add closing braces and brackes and stuff.
-        -- gitsigns -- git change detection and blame
-
-        -- CoC is the LSP path that I've gone with.
-        -- This is instead of manually setting everything up myself. Which is not worth.
-        use {
-            'neoclide/coc.nvim',
-            branch = 'release',
-            config = function() require('plugins.config.coc') end,
-        }
+        use { "wbthomason/packer.nvim" } -- self-updating packer (and proper tracking behavior)
 
         -- Telescope is a fuzzy finder tool.
         -- Requires ripgrep to be installed on the machine for full functionality.
@@ -63,6 +50,8 @@ return require('packer').startup({
             branch = 'master',
             config = function() require('plugins.config.autopairs') end
         }
+
+        -- Show list of open buffers on edge of screen 
         use {
             'akinsho/bufferline.nvim',
             branch = 'main',
@@ -71,7 +60,8 @@ return require('packer').startup({
             config = function() require('bufferline').setup{} end
         }
 
-
+        -- Themes
+        -- Flip the disabled flag on whichever you want to use. 
         use {
             'NLKNguyen/papercolor-theme',
             branch = 'master',
