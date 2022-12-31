@@ -84,6 +84,14 @@ return require('packer').startup({
             config = function() require('bufferline').setup {} end
         }
 
+
+        -- Markdown table formatting 
+        use {
+            'dhruvasagar/vim-table-mode',
+            branch = 'master',
+            --config = function() require('plugins.config.vim-table-mode') end
+        }
+
         -- Themes
         -- Flip the disabled flag on whichever you want to use.
         use {
