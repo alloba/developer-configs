@@ -1,10 +1,10 @@
 {
-    // don't automatically highlight the first suggestion in the popup. 
-    //This pairs with not automatically changing the typed text to the first suggestion. 
-  "suggest.noselect": false,
+  // don't automatically highlight the first suggestion in the popup.
+  //This pairs with not automatically changing the typed text to the first suggestion.
+  "suggest.noselect": true,
 
   // show diagnostics on specific token hover, as well showing as virtual text at end of the line.
-  // automatically refresh diagnostic suggestions, even in insert mode 
+  // automatically refresh diagnostic suggestions, even in insert mode
   // checkCurrentLine controls if diagnostics is show for anything on the line, even if cursor is not on the token
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
@@ -12,8 +12,8 @@
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.autoRefresh": true,
 
-  // telemetry was linked to nags from sumneko for available updates, so it's off. 
-  // globals and dev mode are to allow completion/docs for neovim. 
+  // telemetry was linked to nags from sumneko for available updates, so it's off.
+  // globals and dev mode are to allow completion/docs for neovim.
   "Lua.telemetry.enable": false,
   "Lua.diagnostics.globals": ["vim"],
   "sumneko-lua.enableNvimLuaDev": true
