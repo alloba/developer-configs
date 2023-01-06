@@ -15,8 +15,7 @@ return require('packer').startup({
         use {
              'nvim-treesitter/nvim-treesitter',
             branch = 'master',
-            config = function() require('plugins.config.treesitter') end,
-            -- run = ':TSUpdate'  -- running this causes sync to fail the first time it is run. below is the alternative. 
+            -- run = ':TSUpdate'  -- running this causes sync to fail the first time it is run. below is the alternative.
             run = function() require('nvim-treesitter.install').update({ with_sync = true }).ts_update() end,
         }
 
@@ -24,7 +23,6 @@ return require('packer').startup({
         use {
             'neoclide/coc.nvim',
             branch = 'release',
-            config = function() require('plugins.config.coc') end,
         }
 
         -- Telescope is a fuzzy finder tool.
@@ -33,7 +31,6 @@ return require('packer').startup({
             'nvim-telescope/telescope.nvim',
             branch = 'master',
             requires = { { 'nvim-lua/plenary.nvim', branch = 'master' } },
-            config = function() require('plugins.config.telescope') end
         }
         -- coc integration with telescope
         use {
@@ -48,7 +45,6 @@ return require('packer').startup({
             'kyazdani42/nvim-tree.lua',
             branch = 'master',
             requires = { 'kyazdani42/nvim-web-devicons', branch = 'master' },
-            config = function() require('plugins.config.nvimtree') end
         }
 
         -- Persistent terminal / multiple terminals.
@@ -56,7 +52,6 @@ return require('packer').startup({
         use {
             'akinsho/toggleterm.nvim',
             tag = 'v2.*',
-            config = function() require('plugins.config.toggleterm') end
         }
 
         -- Nice markdown renderer.
@@ -71,27 +66,23 @@ return require('packer').startup({
         use {
             'windwp/nvim-autopairs',
             branch = 'master',
-            config = function() require('plugins.config.autopairs') end
         }
         use {
             'akinsho/bufferline.nvim',
             branch = 'main',
             tag = 'v3.*',
             requires = { 'nvim-tree/nvim-web-devicons', branch = 'main' },
-            config = function() require('bufferline').setup {} end
         }
 
 
         use {
             'NLKNguyen/papercolor-theme',
             branch = 'master',
-            config = function() require('plugins.config.papercolor') end,
             disable = false
         }
         use {
             'ellisonleao/gruvbox.nvim',
             branch = 'main',
-            config = function() require('plugins.config.gruvbox') end,
             disable = true
         }
 
