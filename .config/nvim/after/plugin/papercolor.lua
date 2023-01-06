@@ -1,2 +1,2 @@
 vim.opt.background = 'dark'
-vim.cmd 'colorscheme PaperColor'
+vim.cmd 'silent! colorscheme PaperColor'
