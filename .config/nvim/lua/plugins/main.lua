@@ -12,12 +12,15 @@ return require('packer').startup({
         -- Packer
         use { "wbthomason/packer.nvim" } -- packer needs to know about itself to avoid deletion during PackerSync
 
-        -- To Evaulate:
-        -- nvim autopairs -- automatically add closing braces and brackes and stuff.
-        -- gitsigns -- git change detection and blame
+        use {
+             'nvim-treesitter/nvim-treesitter',
+            branch = 'master',
+            config = function() require('plugins.config.treesitter') end,
+            -- run = ':TSUpdate'  -- running this causes sync to fail the first time it is run. below is the alternative. 
+            run = function() require('nvim-treesitter.install').update({ with_sync = true }).ts_update() end,
+        }
 
-        -- CoC is the LSP path that I've gone with.
-        -- This is instead of manually setting everything up myself. Which is not worth.
+        -- coc for autocompletion/lsp/etc
         use {
             'neoclide/coc.nvim',
             branch = 'release',
@@ -32,10 +35,12 @@ return require('packer').startup({
             requires = { { 'nvim-lua/plenary.nvim', branch = 'master' } },
             config = function() require('plugins.config.telescope') end
         }
-        -- coc integration with telescope 
+        -- coc integration with telescope
         use {
             'fannheyward/telescope-coc.nvim',
             branch = 'master',
+            requires = { { 'nvim-telescope/telescope.nvim', branch = 'master' },
+                { 'neoclide/coc.nvim', branch = 'release' } },
         }
 
         -- File system viewer
@@ -47,7 +52,7 @@ return require('packer').startup({
         }
 
         -- Persistent terminal / multiple terminals.
-        -- It's suggested to specify major version tags. So keep updates in mind if errors start happening. 
+        -- It's suggested to specify major version tags. So keep updates in mind if errors start happening.
         use {
             'akinsho/toggleterm.nvim',
             tag = 'v2.*',
@@ -72,8 +77,8 @@ return require('packer').startup({
             'akinsho/bufferline.nvim',
             branch = 'main',
             tag = 'v3.*',
-            requires = {'nvim-tree/nvim-web-devicons', branch='main'},
-            config = function() require('bufferline').setup{} end
+            requires = { 'nvim-tree/nvim-web-devicons', branch = 'main' },
+            config = function() require('bufferline').setup {} end
         }
 
 
