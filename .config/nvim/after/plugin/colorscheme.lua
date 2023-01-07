@@ -1,4 +1,18 @@
---vim.cmd 'colorscheme gruvbox'
+-- OneDark
+local status, onedark = pcall(require, "onedark")
+if status then
+    onedark.setup {
+        style = 'darker',
+        transparent = false,
+    }
+    onedark.load()
+end
 
-vim.opt.background = 'dark'
-vim.cmd 'colorscheme gruvbox-material'
+-- TokyoNight
+local status, tokyonight = pcall(require, "tokyonight")
+if status then
+    tokyonight.setup {
+        style = "storm",
+    }
+    tokyonight.load()
+end

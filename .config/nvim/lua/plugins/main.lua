@@ -75,17 +75,33 @@ return require('packer').startup({
         }
 
 
+        ---
+        -- ColorSchemes.
+        -- Disable anything not in use to cut down sync time.
+        -- Mostly sourced from: https://github.com/rockerBOO/awesome-neovim#colorscheme
+        ---
         use {
             'pappasam/papercolor-theme-slim',
             branch = 'main',
-            disable = false
+            disable = true
         }
         use {
             'sainnhe/gruvbox-material',
             branch = 'master',
+            disable = true
+        }
+
+        use {
+            'navarasu/onedark.nvim',
+            branch = 'master',
             disable = false
         }
 
+        use {
+            'folke/tokyonight.nvim',
+            branch = 'main',
+            disable = true 
+        }
         ------------------------------------------------
 
         -- If bootstrap triggered, sync packer. This must be the last thing that executes in this function
