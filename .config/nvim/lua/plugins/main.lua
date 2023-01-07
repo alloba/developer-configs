@@ -13,7 +13,7 @@ return require('packer').startup({
         use { "wbthomason/packer.nvim" } -- packer needs to know about itself to avoid deletion during PackerSync
 
         use {
-             'nvim-treesitter/nvim-treesitter',
+            'nvim-treesitter/nvim-treesitter',
             branch = 'master',
             -- run = ':TSUpdate'  -- running this causes sync to fail the first time it is run. below is the alternative.
             run = function() require('nvim-treesitter.install').update({ with_sync = true }).ts_update() end,
@@ -76,14 +76,14 @@ return require('packer').startup({
 
 
         use {
-            'NLKNguyen/papercolor-theme',
-            branch = 'master',
+            'pappasam/papercolor-theme-slim',
+            branch = 'main',
             disable = false
         }
         use {
-            'ellisonleao/gruvbox.nvim',
-            branch = 'main',
-            disable = true
+            'sainnhe/gruvbox-material',
+            branch = 'master',
+            disable = false
         }
 
         ------------------------------------------------

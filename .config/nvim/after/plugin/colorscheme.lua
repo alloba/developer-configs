@@ -1,4 +1,4 @@
 --vim.cmd 'colorscheme gruvbox'
 
 vim.opt.background = 'dark'
-vim.cmd 'colorscheme PaperColor'
+vim.cmd 'colorscheme gruvbox-material'
