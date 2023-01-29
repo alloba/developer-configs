@@ -6,3 +6,7 @@ require 'nvim-treesitter.configs'.setup {
     disable = {
     }
 }
+
+-- This overrides the foldmethod found in settings.lua.
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
