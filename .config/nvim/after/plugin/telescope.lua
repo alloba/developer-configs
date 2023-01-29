@@ -1,6 +1,9 @@
 local telescope = require('telescope')
 
 telescope.setup({
+    defaults={
+        layout_strategy='vertical'
+    },
     extensions = {
         coc = {
             theme = 'ivy', -- panel is stuck to the bottom instead of floating in the middle with this theme.
