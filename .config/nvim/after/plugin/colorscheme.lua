@@ -3,7 +3,7 @@ local status, onedark = pcall(require, "onedark")
 if status then
     onedark.setup {
         style = 'darker',
-        transparent = false,
+        transparent = true,
     }
     onedark.load()
 end
