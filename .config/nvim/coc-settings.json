@@ -16,5 +16,7 @@
   // globals and dev mode are to allow completion/docs for neovim.
   "Lua.telemetry.enable": false,
   "Lua.diagnostics.globals": ["vim"],
-  "sumneko-lua.enableNvimLuaDev": true
+  "sumneko-lua.enableNvimLuaDev": true,
+
+  "java.jdt.ls.java.home": "C:/Users/alexl/tools/jdk-17/"
 }
