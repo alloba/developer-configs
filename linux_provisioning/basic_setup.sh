@@ -54,6 +54,7 @@ apt install software-properties-common
 apt update 
 mkdir -p ${HOME}/Downloads
 
+apt install -y dos2unix
 apt install -y discord 
 apt install -y steam 
 apt install -y neovim 
