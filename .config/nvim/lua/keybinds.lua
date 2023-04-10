@@ -1,6 +1,6 @@
 --print('Load keybinds.lua')
 
-vim.api.nvim_set_keymap('n', ' ', '<Leader>', {noremap = true})
+--vim.api.nvim_set_keymap('n', ' ', '<Leader>', {noremap = true}) --this may not be needed? delete if no problems in the future (@2023-04-10)
 vim.g.mapleader = ' '
 
 
