@@ -2,7 +2,7 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    PACKER_BOOTSTRAP = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
         install_path })
 end
 --
@@ -15,15 +15,37 @@ return require('packer').startup({
         use {
             'nvim-treesitter/nvim-treesitter',
             branch = 'master',
-            -- run = ':TSUpdate'  -- running this causes sync to fail the first time it is run. below is the alternative.
             run = function() require('nvim-treesitter.install').update({ with_sync = true }).ts_update() end,
         }
 
-        -- coc for autocompletion/lsp/etc
         use {
-            'neoclide/coc.nvim',
-            branch = 'release',
+            'williamboman/mason.nvim',
+            branch = 'main',
+            run = ':MasonUpdate'
         }
+        
+        use {
+            'williamboman/mason-lspconfig.nvim'
+        }
+
+        -- language server configs
+        use {
+            'neovim/nvim-lspconfig',
+            branch = 'master',
+            wants = {
+                "mason.nvim",
+                "mason-lspconfig.nvim",
+                "mason-tool-installer.nvim"
+            }
+        }
+
+        -- null-ls is used to inject lsp goodies. code actions, completion, hover, formatting, etc.
+--        use {
+ --           'jose-elias-alvarez/null-ls.nvim',
+  --          branch = 'main',
+   --         requires = { { 'nvim-lua/plenary', branch = 'master' } }
+    ---    }
+
 
         -- Telescope is a fuzzy finder tool.
         -- Requires ripgrep to be installed on the machine for full functionality.
@@ -31,21 +53,15 @@ return require('packer').startup({
             'nvim-telescope/telescope.nvim',
             branch = 'master',
             requires = { { 'nvim-lua/plenary.nvim', branch = 'master' } },
-        }
-        -- coc integration with telescope
-        use {
-            'fannheyward/telescope-coc.nvim',
-            branch = 'master',
-            requires = { { 'nvim-telescope/telescope.nvim', branch = 'master' },
-                { 'neoclide/coc.nvim', branch = 'release' } },
+            
         }
 
-        -- File system viewer
+
         use {
-            'kyazdani42/nvim-tree.lua',
+            'nvim-tree/nvim-tree.lua',
             branch = 'master',
-            requires = { 'kyazdani42/nvim-web-devicons', branch = 'master' },
-        }
+            requires = {'nvim-tree/nvim-web-devicons', branch ='master'}
+        } 
 
         -- Persistent terminal / multiple terminals.
         -- It's suggested to specify major version tags. So keep updates in mind if errors start happening.
@@ -54,24 +70,17 @@ return require('packer').startup({
             tag = 'v2.*',
         }
 
-        -- Nice markdown renderer.
-        -- On windows, you must install glow separately. Once it is on the path it works fine.
-        -- For other platforms, just run :GlowInstall
-        use {
-            'ellisonleao/glow.nvim',
-            branch = 'main',
-        }
-
         -- Add matching closing parens/brackets to text.
         use {
             'windwp/nvim-autopairs',
             branch = 'master',
         }
+        --bufferline (show open buffers at top of screen)
         use {
             'akinsho/bufferline.nvim',
             branch = 'main',
             tag = 'v3.*',
-            requires = { 'nvim-tree/nvim-web-devicons', branch = 'main' },
+            requires = { 'nvim-tree/nvim-web-devicons', branch = 'master' },
         }
 
 
@@ -100,16 +109,15 @@ return require('packer').startup({
         use {
             'folke/tokyonight.nvim',
             branch = 'main',
-            disable = true 
+            disable = true
         }
         ------------------------------------------------
 
         -- If bootstrap triggered, sync packer. This must be the last thing that executes in this function
-        if packer_bootstrap then
+        if PACKER_BOOTSTRAP then
             require('packer').sync()
         end
     end,
-
     config = {
         display = {
             open_fn = require('packer.util').float,
