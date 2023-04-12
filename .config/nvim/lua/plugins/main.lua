@@ -23,7 +23,7 @@ return require('packer').startup({
             branch = 'main',
             run = ':MasonUpdate'
         }
-        
+
         use {
             'williamboman/mason-lspconfig.nvim'
         }
@@ -39,29 +39,20 @@ return require('packer').startup({
             }
         }
 
-        -- null-ls is used to inject lsp goodies. code actions, completion, hover, formatting, etc.
---        use {
- --           'jose-elias-alvarez/null-ls.nvim',
-  --          branch = 'main',
-   --         requires = { { 'nvim-lua/plenary', branch = 'master' } }
-    ---    }
-
-
         -- Telescope is a fuzzy finder tool.
         -- Requires ripgrep to be installed on the machine for full functionality.
         use {
             'nvim-telescope/telescope.nvim',
             branch = 'master',
             requires = { { 'nvim-lua/plenary.nvim', branch = 'master' } },
-            
-        }
 
+        }
 
         use {
             'nvim-tree/nvim-tree.lua',
             branch = 'master',
-            requires = {'nvim-tree/nvim-web-devicons', branch ='master'}
-        } 
+            requires = { 'nvim-tree/nvim-web-devicons', branch = 'master' }
+        }
 
         -- Persistent terminal / multiple terminals.
         -- It's suggested to specify major version tags. So keep updates in mind if errors start happening.
