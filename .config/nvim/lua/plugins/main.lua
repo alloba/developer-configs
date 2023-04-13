@@ -39,6 +39,19 @@ return require('packer').startup({
             }
         }
 
+        -- cmp for completions. completion sources are pulled from depedencies and loaded explicitly (in plugin config file)
+        use {
+            'hrsh7th/nvim-cmp',
+            branch = 'main',
+            requires = {
+                {'hrsh7th/cmp-nvim-lsp'},
+                {'hrsh7th/cmp-buffer'},
+                {'hrsh7th/cmp-path'},
+                {'L3MON4D3/LuaSnip', tag = 'v1.*'}, -- it wasnt immediately clear, but you MUST have a snippet engine for cmp
+                {'saadparwaiz1/cmp_luasnip' }
+            }
+        }
+
         -- Telescope is a fuzzy finder tool.
         -- Requires ripgrep to be installed on the machine for full functionality.
         use {
