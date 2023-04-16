@@ -67,6 +67,8 @@ return require('packer').startup({
             requires = { 'nvim-tree/nvim-web-devicons', branch = 'master' }
         }
 
+        use {'RRethy/vim-illuminate'}
+
         -- Persistent terminal / multiple terminals.
         -- It's suggested to specify major version tags. So keep updates in mind if errors start happening.
         use {
