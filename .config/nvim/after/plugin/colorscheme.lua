@@ -3,7 +3,7 @@ local status, onedark = pcall(require, "onedark")
 if status then
     onedark.setup {
         style = 'darker',
-        transparent = true,
+--        transparent = true,
     }
     onedark.load()
 end
@@ -13,10 +13,11 @@ local status, tokyonight = pcall(require, "tokyonight")
 if status then
     tokyonight.setup {
         style = "storm",
+        transparent = true,
     }
     tokyonight.load()
 end
 
 
 -- i need a way to address automatically setting color schemes that aren't handled as function imports. 
-vim.cmd[[colorscheme PaperColorSlim]]
+--vim.cmd[[colorscheme PaperColorSlim]]

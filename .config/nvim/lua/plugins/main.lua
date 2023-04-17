@@ -102,7 +102,7 @@ return require('packer').startup({
         use {
             'pappasam/papercolor-theme-slim',
             branch = 'main',
-            disable = false
+            disable = true 
         }
         use {
             'sainnhe/gruvbox-material',
@@ -119,7 +119,7 @@ return require('packer').startup({
         use {
             'folke/tokyonight.nvim',
             branch = 'main',
-            disable = true
+            disable = false 
         }
         ------------------------------------------------
 
