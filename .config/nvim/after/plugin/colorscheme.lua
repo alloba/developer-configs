@@ -16,3 +16,7 @@ if status then
     }
     tokyonight.load()
 end
+
+
+-- i need a way to address automatically setting color schemes that aren't handled as function imports. 
+vim.cmd[[colorscheme PaperColorSlim]]

@@ -15,10 +15,10 @@ return require('packer').startup({
         use {
             'nvim-treesitter/nvim-treesitter',
             branch = 'master',
-            run = function() 
-                has,tree = pcall(require, 'nvim-treesitter.install')
-                if not has then return end 
-                tree.update({ with_sync = true }).ts_update() 
+            run = function()
+                has, tree = pcall(require, 'nvim-treesitter.install')
+                if not has then return end
+                tree.update({ with_sync = true }).ts_update()
             end,
         }
 
@@ -48,11 +48,11 @@ return require('packer').startup({
             'hrsh7th/nvim-cmp',
             branch = 'main',
             requires = {
-                {'hrsh7th/cmp-nvim-lsp'},
-                {'hrsh7th/cmp-buffer'},
-                {'hrsh7th/cmp-path'},
-                {'L3MON4D3/LuaSnip', tag = 'v1.*'}, -- it wasnt immediately clear, but you MUST have a snippet engine for cmp
-                {'saadparwaiz1/cmp_luasnip' }
+                { 'hrsh7th/cmp-nvim-lsp' },
+                { 'hrsh7th/cmp-buffer' },
+                { 'hrsh7th/cmp-path' },
+                { 'L3MON4D3/LuaSnip',        tag = 'v1.*' }, -- it wasnt immediately clear, but you MUST have a snippet engine for cmp
+                { 'saadparwaiz1/cmp_luasnip' }
             }
         }
 
@@ -71,7 +71,7 @@ return require('packer').startup({
             requires = { 'nvim-tree/nvim-web-devicons', branch = 'master' }
         }
 
-        use {'RRethy/vim-illuminate'}
+        use { 'RRethy/vim-illuminate' }
 
         -- Persistent terminal / multiple terminals.
         -- It's suggested to specify major version tags. So keep updates in mind if errors start happening.
@@ -102,7 +102,7 @@ return require('packer').startup({
         use {
             'pappasam/papercolor-theme-slim',
             branch = 'main',
-            disable = true
+            disable = false
         }
         use {
             'sainnhe/gruvbox-material',
@@ -113,7 +113,7 @@ return require('packer').startup({
         use {
             'navarasu/onedark.nvim',
             branch = 'master',
-            disable = false
+            disable = true
         }
 
         use {
