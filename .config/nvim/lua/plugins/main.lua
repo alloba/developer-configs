@@ -15,7 +15,11 @@ return require('packer').startup({
         use {
             'nvim-treesitter/nvim-treesitter',
             branch = 'master',
-            run = function() require('nvim-treesitter.install').update({ with_sync = true }).ts_update() end,
+            run = function() 
+                has,tree = pcall(require, 'nvim-treesitter.install')
+                if not has then return end 
+                tree.update({ with_sync = true }).ts_update() 
+            end,
         }
 
         use {
