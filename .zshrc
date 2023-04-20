@@ -77,6 +77,7 @@ alias ls="la --color"
 alias ff="fd . $HOME | fzf"
 alias ffd="fd -t d . $HOME | fzf"
 alias terraform="$HOME/tools/terraform/versions/terraform__0_12_17"
+if command -v bat &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-Dark"; fi
 
 alias awsli="~/projects/li-users/scripts/awsli"
 alias awsenv="~/projects/li-users/scripts/awsenv"
