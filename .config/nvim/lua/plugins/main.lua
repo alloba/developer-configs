@@ -56,6 +56,11 @@ return require('packer').startup({
             }
         }
 
+        use {
+            'jose-elias-alvarez/null-ls.nvim',
+            requires = { { 'nvim-lua/plenary.nvim' } }
+        }
+
         -- Telescope is a fuzzy finder tool.
         -- Requires ripgrep to be installed on the machine for full functionality.
         use {
@@ -102,7 +107,7 @@ return require('packer').startup({
         use {
             'pappasam/papercolor-theme-slim',
             branch = 'main',
-            disable = true 
+            disable = true
         }
         use {
             'sainnhe/gruvbox-material',
@@ -119,7 +124,7 @@ return require('packer').startup({
         use {
             'folke/tokyonight.nvim',
             branch = 'main',
-            disable = false 
+            disable = false
         }
         ------------------------------------------------
 
