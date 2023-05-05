@@ -1,5 +1,5 @@
 --print('Load init.lua')
-require('plugins.main')
+require('plugins')
 require('settings')
 require('keybinds')
 

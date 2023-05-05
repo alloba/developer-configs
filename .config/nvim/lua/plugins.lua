@@ -56,6 +56,7 @@ return require('packer').startup({
             }
         }
 
+        -- null-ls is an "everything else" language server. provides basic lsp functionality for misc filetypes
         use {
             'jose-elias-alvarez/null-ls.nvim',
             requires = { { 'nvim-lua/plenary.nvim' } },
@@ -76,6 +77,7 @@ return require('packer').startup({
             requires = { 'nvim-tree/nvim-web-devicons', branch = 'master' }
         }
 
+        -- highlight other visible occurances of the word your cursor is currently on
         use { 'RRethy/vim-illuminate' }
 
         -- Persistent terminal / multiple terminals.
@@ -97,6 +99,9 @@ return require('packer').startup({
             tag = 'v3.*',
             requires = { 'nvim-tree/nvim-web-devicons', branch = 'master' },
         }
+
+        -- git actions
+        use { 'tpope/vim-fugitive' }
 
 
         ---
