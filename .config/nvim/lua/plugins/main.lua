@@ -58,7 +58,7 @@ return require('packer').startup({
 
         use {
             'jose-elias-alvarez/null-ls.nvim',
-            requires = { { 'nvim-lua/plenary.nvim' } }
+            requires = { { 'nvim-lua/plenary.nvim' } },
         }
 
         -- Telescope is a fuzzy finder tool.
@@ -118,13 +118,13 @@ return require('packer').startup({
         use {
             'navarasu/onedark.nvim',
             branch = 'master',
-            disable = true
+            disable = false
         }
 
         use {
             'folke/tokyonight.nvim',
             branch = 'main',
-            disable = false
+            disable = true
         }
         ------------------------------------------------
 
