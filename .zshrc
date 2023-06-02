@@ -34,31 +34,29 @@ source $ZSH/oh-my-zsh.sh
 
 PATH=$HOME/tools:$PATH
 
+# Exports 
 export EDITOR="vim"
 export VISUAL="vim"
 export XDG_CONFIG_HOME=${HOME}/.config
 export AWS_CLI_AUTO_PROMPT="on-partial"
 if type fzf &> /dev/null; then export FZF_BASE=$(where fzf); fi
 
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # nvm completion 
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# bet. ^
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-
-alias vim="nvim"
+# Aliases
 alias ls="la --color"
-alias ff="fd . $HOME | fzf"
-alias ffd="fd -t d . $HOME | fzf"
-if type bat &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-Dark"; fi
+if type nvim   &> /dev/null; then alias vim="nvim"; fi
+if type fd     &> /dev/null; then alias ff="fd . $HOME | fzf"; fi
+if type fd     &> /dev/null; then alias ffd="fd -t d . $HOME | fzf"; fi
+if type bat    &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-Dark"; fi
 
-alias awsli="~/projects/li-users/scripts/awsli"
-alias awsenv="~/projects/li-users/scripts/awsenv"
+[[ -s $HOME/projects/li-users/scripts/awsli ]] && alias awsli="~/projects/li-users/scripts/awsli"
+[[ -s $HOME/projects/li-users/scripts/awsenv ]] && alias awsenv="~/projects/li-users/scripts/awsenv"
 
 function cfd {
     selected_path=$(ffd) 
@@ -70,5 +68,7 @@ function cfd {
         return #non-0 indicates failure or no selection made.  
     fi
 }
+
+# Finalizing
 if type starship &> /dev/null; then eval "$(starship init zsh)"; fi
 
