@@ -12,7 +12,7 @@ ZSH_THEME=""
 HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -34,11 +34,11 @@ source $ZSH/oh-my-zsh.sh
 
 PATH=$HOME/tools:$PATH
 
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="vim"
+export VISUAL="vim"
 export XDG_CONFIG_HOME=${HOME}/.config
-export FZF_BASE=$(where fzf)
 export AWS_CLI_AUTO_PROMPT="on-partial"
+if type fzf &> /dev/null; then export FZF_BASE=$(where fzf); fi
 
 
 export NVM_DIR="$HOME/.nvm"
@@ -55,7 +55,7 @@ alias vim="nvim"
 alias ls="la --color"
 alias ff="fd . $HOME | fzf"
 alias ffd="fd -t d . $HOME | fzf"
-if command -v bat &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-Dark"; fi
+if type bat &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-Dark"; fi
 
 alias awsli="~/projects/li-users/scripts/awsli"
 alias awsenv="~/projects/li-users/scripts/awsenv"
@@ -70,5 +70,5 @@ function cfd {
         return #non-0 indicates failure or no selection made.  
     fi
 }
-if command -v starship &> /dev/null; then eval "$(starship init zsh)"; fi
+if type starship &> /dev/null; then eval "$(starship init zsh)"; fi
 
