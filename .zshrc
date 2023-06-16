@@ -53,6 +53,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Aliases
 alias ls="la --color"
+alias cdp="cd ~/projects/"
 if type nvim   &> /dev/null; then alias vim="nvim"; fi
 if type fd     &> /dev/null; then alias ff="fd . $HOME | fzf"; fi
 if type fd     &> /dev/null; then alias ffd="fd -t d . $HOME | fzf"; fi
