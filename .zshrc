@@ -34,8 +34,8 @@ source $ZSH/oh-my-zsh.sh
 # if [[ $SSH_CONNECTION ]]; then
 #   echo "AM SSH!"
 # fi
-
-PATH=$HOME/tools:$PATH
+[ -d $HOME/tools  ] && PATH=$HOME/tools:$PATH
+[ -d "/home/linuxbrew/.linuxbrew/bin" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Exports 
 export EDITOR="vim"
@@ -47,6 +47,8 @@ if type fzf &> /dev/null; then export FZF_BASE=$(where fzf); fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # nvm completion 
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -74,5 +76,5 @@ function cfd {
 }
 
 # Finalizing
-if type starship &> /dev/null; then eval "$(starship init zsh)"; fi
+if type starship &> /dev/null; then eval "$(starship init zsh)"; else echo "Warning: starship not installed. Expect lame text formatting."; fi
 
