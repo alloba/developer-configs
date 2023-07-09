@@ -1,3 +1,7 @@
 .idea
+
 # packer folder
 .config/nvim/plugin
+
+# nvim appimage dir 
+.config/nvim/nvim
