@@ -75,6 +75,17 @@ function cfd {
     fi
 }
 
+ggrep() {
+    find . -type d -name .git | while read line; do
+        (
+        cd $line/..
+        cwd=$(pwd)
+        echo "$(tput setaf 2)$cwd$(tput sgr0)"
+        git --no-pager grep -n "$@"
+        )
+    done
+}
+
 # Finalizing
 if type starship &> /dev/null; then eval "$(starship init zsh)"; else echo "Warning: starship not installed. Expect lame text formatting."; fi
 
