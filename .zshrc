@@ -53,6 +53,12 @@ export NVM_DIR="$HOME/.nvm"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+
+export PYENV_ROOT="$HOME/.pyenv"
+if type pyenv &> /dev/null; then export PATH="$PYENV_ROOT/bin:$PATH"; fi
+if type pyenv &> /dev/null; then eval "$(pyenv init -)"; fi
+
+
 # Aliases
 alias ls="la --color"
 alias cdp="cd ~/projects/"
