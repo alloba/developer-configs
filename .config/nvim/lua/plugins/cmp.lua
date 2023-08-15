@@ -1,3 +1,6 @@
+local has, lzutil = pcall(require, 'lazyvim.util')
+if not has then return end 
+
 return {
   {
     "hrsh7th/cmp-nvim-lsp",

@@ -1,9 +1,14 @@
+local has, lzutil = pcall(require, "lazyvim.util")
+if not has then
+  return
+end
+
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim",  opts = {} },
     "mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     {
@@ -82,9 +87,9 @@ return {
       -- end,
       -- Specify * to use this function as a fallback for any server
       -- ["*"] = function(server, opts) end,
-      kotlin_server = function (_, opts)
-        require('kotlin').setup({server = opts})
-      end 
+      kotlin_server = function(_, opts)
+        require("kotlin").setup({ server = opts })
+      end,
     },
   },
   ---@param opts PluginLspOpts
@@ -132,14 +137,14 @@ return {
 
     if type(opts.diagnostics.virtual_text) == "table" and opts.diagnostics.virtual_text.prefix == "icons" then
       opts.diagnostics.virtual_text.prefix = vim.fn.has("nvim-0.10.0") == 0 and "●"
-        or function(diagnostic)
-          local icons = require("lazyvim.config").icons.diagnostics
-          for d, icon in pairs(icons) do
-            if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
-              return icon
+          or function(diagnostic)
+            local icons = require("lazyvim.config").icons.diagnostics
+            for d, icon in pairs(icons) do
+              if diagnostic.severity == vim.diagnostic.severity[d:upper()] then
+                return icon
+              end
             end
           end
-        end
     end
 
     vim.diagnostic.config(vim.deepcopy(opts.diagnostics))

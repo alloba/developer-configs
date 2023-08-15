@@ -22,8 +22,6 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git fzf aws)
 
-source $ZSH/oh-my-zsh.sh
-
 # ### ## ### ## ### ## ### ## ### ## ### #
 # ### ## ### ## ### ## ### ## ### ## ### #
 # User configuration
@@ -60,7 +58,7 @@ if type pyenv &> /dev/null; then eval "$(pyenv init -)"; fi
 
 
 # Aliases
-alias ls="la --color"
+alias ls="ls -lha --color"
 alias cdp="cd ~/projects/"
 if type nvim   &> /dev/null; then alias vim="nvim"; fi
 if type fd     &> /dev/null; then alias ff="fd . $HOME | fzf"; fi
