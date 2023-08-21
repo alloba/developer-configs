@@ -37,8 +37,9 @@ source $ZSH/oh-my-zsh.sh
 # if [[ $SSH_CONNECTION ]]; then
 #   echo "AM SSH!"
 # fi
-#[ -d $HOME/tools  ] && PATH=$HOME/tools:$PATH
-#[ -d "/home/linuxbrew/.linuxbrew/bin" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+[ -d $HOME/tools  ] && PATH=$HOME/tools:$PATH
+[ -d "/home/linuxbrew/.linuxbrew/bin" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Exports
 export EDITOR="vim"
