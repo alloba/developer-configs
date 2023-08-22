@@ -23,7 +23,7 @@ COMPLETION_WAITING_DOTS="true"
 # zsh autocomplete installation:
 $(command -v git &> /dev/null) && [[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom/plugins/zsh-autosuggestions} ]] && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-plugins=(git fzf aws zsh-autosuggestions)
+plugins=(git aws zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -46,7 +46,7 @@ export EDITOR="vim"
 export VISUAL="vim"
 export XDG_CONFIG_HOME=${HOME}/.config
 export AWS_CLI_AUTO_PROMPT="on-partial"
-if type fzf &> /dev/null; then export FZF_BASE=$(where fzf); fi
+#if type fzf &> /dev/null; then export FZF_BASE=$(where fzf); fi  # turned this off because the terminal complains about the fzf plugin on linux
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
