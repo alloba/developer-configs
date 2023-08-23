@@ -1,3 +1,7 @@
+#not sure if i'm setting these right, but i'll certainly find out eventually. 
+export SAVEHIST=100000
+export HISTSIZE=100000
+
 # iterm2 utils/integrations
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
