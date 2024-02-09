@@ -32,6 +32,8 @@ None of these deeply matter except the config home, honestly.
 
 ## Plugins
 
+***A lot of this info is obsoleted by using LazyVim, but I don't care to remove it right now. Refer to LazyVim docs for plugins and folder layout***
+
 They good. 
 I use Packer to handle all plugins/external resources.
 Things should be pretty nicely set up to where all you have to do is follow the 
