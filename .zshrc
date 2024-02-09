@@ -42,21 +42,21 @@ source $ZSH/oh-my-zsh.sh
 #   echo "AM SSH!"
 # fi
 
-[ -d $HOME/tools  ] && PATH=$HOME/tools:$PATH
-[ -d "/home/linuxbrew/.linuxbrew/bin" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+[ -d $HOME/tools  ] && PATH=$HOME/tools:$PATH  # any manually downloaded tools that i want to have on the path
+[ -d "/home/linuxbrew/.linuxbrew/bin" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"  # brew for linux config, if installed.
 
 # Exports
 export EDITOR="vim"
 export VISUAL="vim"
 export XDG_CONFIG_HOME=${HOME}/.config
-export AWS_CLI_AUTO_PROMPT="on-partial"
+export AWS_CLI_AUTO_PROMPT="on-partial"  # when using the aws cli, will pop up a helper TUI if the command you typed isn't valid/returns an error
 #if type fzf &> /dev/null; then export FZF_BASE=$(where fzf); fi  # turned this off because the terminal complains about the fzf plugin on linux
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm on mac
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # nvm completion
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm on linux
+[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm completion
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -76,9 +76,11 @@ if type fd     &> /dev/null; then alias ff="fd . $HOME | fzf"; fi
 if type fd     &> /dev/null; then alias ffd="fd -t d . $HOME | fzf"; fi
 if type bat    &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-Dark"; fi
 
+# LabelInsight tooling for assume-role in aws.
 [[ -s $HOME/projects/li-users/scripts/awsli ]] && alias awsli="~/projects/li-users/scripts/awsli"
 [[ -s $HOME/projects/li-users/scripts/awsenv ]] && alias awsenv="~/projects/li-users/scripts/awsenv"
 
+# Fuzzy find all directories under HOME and switch to the one selected.
 function cfd {
     selected_path=$(ffd)
     exit_status=$?
@@ -90,6 +92,8 @@ function cfd {
     fi
 }
 
+# Recursively search all git repos for text matching the string provided to the command
+# Not sure why I needed this originally... how is this significantly different to ripgrep?
 function ggrep {
     find . -type d -name .git | while read line; do
         (
@@ -101,6 +105,6 @@ function ggrep {
     done
 }
 
-# Finalizing
+# Starship for CLI customizations and icons.
 if type starship &> /dev/null; then eval "$(starship init zsh)"; else echo "Warning: starship not installed. Expect lame text formatting."; fi
 
