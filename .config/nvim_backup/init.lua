@@ -1,5 +1,2 @@
---print('Load init.lua')
-require('plugins')
-require('settings')
-require('keybinds')
-
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
