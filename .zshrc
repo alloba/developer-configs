@@ -41,8 +41,8 @@ source $ZSH/oh-my-zsh.sh
 # if [[ $SSH_CONNECTION ]]; then
 #   echo "AM SSH!"
 # fi
-
-[ -d $HOME/tools  ] && PATH=$HOME/tools:$PATH  # any manually downloaded tools that i want to have on the path
+[ -d $HOME/bin ] && PATH=$HOME/bin:$PATH
+[ -d $HOME/tools ] && PATH=$HOME/tools:$PATH  # any manually downloaded tools that i want to have on the path
 [ -d "/home/linuxbrew/.linuxbrew/bin" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"  # brew for linux config, if installed.
 
 # Exports
