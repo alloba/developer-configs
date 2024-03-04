@@ -105,6 +105,9 @@ function ggrep {
     done
 }
 
+#ZOxide
+if type zoxide &> /dev/null; then eval "$(zoxide init zsh)"; alias cdp="z ~/projects/"; fi
+
 # Starship for CLI customizations and icons.
 if type starship &> /dev/null; then eval "$(starship init zsh)"; else echo "Warning: starship not installed. Expect lame text formatting."; fi
 
