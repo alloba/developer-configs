@@ -79,6 +79,7 @@ if type bat    &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-
 # LabelInsight tooling for assume-role in aws.
 [[ -s $HOME/projects/li-users/scripts/awsli ]] && alias awsli="~/projects/li-users/scripts/awsli"
 [[ -s $HOME/projects/li-users/scripts/awsenv ]] && alias awsenv="~/projects/li-users/scripts/awsenv"
+if type bw &> /dev/null && type awsli &> /dev/null; then alias awsli="~/projects/personal/developer-configs/scripts/awsli_shortcut.sh"; fi
 
 # Fuzzy find all directories under HOME and switch to the one selected.
 function cfd {
