@@ -5,3 +5,6 @@
 
 # nvim appimage dir 
 .config/nvim/nvim
+
+# bitwarden local password storage
+.bw_pass
