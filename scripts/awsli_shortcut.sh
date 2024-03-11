@@ -18,5 +18,5 @@
 # echo "🎬 Assuming Role ${selected_group}"
 set -e
 
-export AWS_TOTP=$(python ./aws_totp_bw.py)
+export AWS_TOTP=$(python ~/projects/personal/developer-configs/scripts/aws_totp_bw.py)
 ~/projects/li-users/scripts/awsli
