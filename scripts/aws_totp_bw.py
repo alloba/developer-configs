@@ -17,7 +17,7 @@ There are two "brute force" choices made here for simplicity, which leads to slo
 
 
 EMAIL = 'alexlbates@gmail.com'
-BW_PASS_FILE_LOCATION = '~/projects/personal/developer-configs/.bw_passs'
+BW_PASS_FILE_LOCATION = '~/projects/personal/developer-configs/.bw_pass'
 AWS_BW_ENTRY_ID = '5cda22c2-1662-4d44-8f4f-afcb00ffc123'
 
 
