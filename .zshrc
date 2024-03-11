@@ -45,6 +45,7 @@ source $ZSH/oh-my-zsh.sh
 [ -d $HOME/tools ] && PATH=$HOME/tools:$PATH  # any manually downloaded tools that i want to have on the path
 [ -d "/home/linuxbrew/.linuxbrew/bin" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"  # brew for linux config, if installed.
 
+
 # Exports
 export EDITOR="vim"
 export VISUAL="vim"
@@ -61,6 +62,11 @@ export NVM_DIR="$HOME/.nvm"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+if [[ -f $HOME/tools/asdf/asdf.sh ]]; then 
+  source $HOME/tools/asdf/asdf.sh;
+  fpath=(${ASDF_DIR}/completions $fpath);
+  autoload -Uz compinit && compinit;
+fi 
 
 export PYENV_ROOT="$HOME/.pyenv"
 if type pyenv &> /dev/null; then export PATH="$PYENV_ROOT/bin:$PATH"; fi
