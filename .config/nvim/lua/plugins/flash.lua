@@ -3,7 +3,9 @@ return {
   opts = {
     modes = {
       search = {
-        enabled = false, -- this does distracting character replacement while searching. so no.
+        -- When enabled this will show jump characters while searching.
+        -- I'm not sure if it's annoying or useful honestly.
+        enabled = true,
       },
     },
   },
