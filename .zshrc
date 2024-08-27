@@ -52,6 +52,7 @@ export VISUAL="vim"
 export XDG_CONFIG_HOME=${HOME}/.config
 export AWS_CLI_AUTO_PROMPT="on-partial"  # when using the aws cli, will pop up a helper TUI if the command you typed isn't valid/returns an error
 export FZF_DEFAULT_OPTS='--ansi'  # not recommended to add ansi to default opts but im doing it anyways.
+export HOMEBREW_NO_AUTO_UPDATE=1  # I super do not need brew to update all my packages for me when im trying to install a single thing real quick
 #if type fzf &> /dev/null; then export FZF_BASE=$(where fzf); fi  # turned this off because the terminal complains about the fzf plugin on linux
 
 export NVM_DIR="$HOME/.nvm"
