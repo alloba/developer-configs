@@ -1,14 +1,15 @@
-Util = require("lazyvim.util")
 return {
   "nvim-telescope/telescope.nvim",
-  commit = vim.fn.has("nvim-0.9.0") == 0 and "057ee0f8783" or nil,
   cmd = "Telescope",
-  version = false, -- telescope did only one release, so use HEAD for now
+  enabled = function()
+    return LazyVim.pick.want() == "telescope"
+  end,
+  tag = "0.1.8", -- telescope seems specific about its tagging or something. lazy docs and telescope readme recommend two separate, equally specific configs
   keys = {
     -- find
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-    { "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
-    { "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+    { "<leader>ff", LazyVim.pick("files"), desc = "Find Files (root dir)" },
+    { "<leader>fF", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
     -- git
     { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
     { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
@@ -20,47 +21,41 @@ return {
     { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
     { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
     { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
-    { "<leader>fg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-    { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+    { "<leader>fg", LazyVim.pick("live_grep"), desc = "Grep (root dir)" },
+    { "<leader>uC", LazyVim.pick("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
     {
       "<leader>ss",
-      Util.telescope("lsp_document_symbols", {
-        symbols = {
-          "Class",
-          "Function",
-          "Method",
-          "Constructor",
-          "Interface",
-          "Module",
-          "Struct",
-          "Trait",
-          "Field",
-          "Property",
-        },
-      }),
+      function()
+        require("telescope.builtin").lsp_document_symbols({ symbols = LazyVim.config.get_kind_filter() })
+      end,
       desc = "Goto Symbol",
     },
     {
       "<leader>sS",
-      Util.telescope("lsp_dynamic_workspace_symbols", {
-        symbols = {
-          "Class",
-          "Function",
-          "Method",
-          "Constructor",
-          "Interface",
-          "Module",
-          "Struct",
-          "Trait",
-          "Field",
-          "Property",
-        },
-      }),
+      function()
+        require("telescope.builtin").lsp_dynamic_workspace_symbols({
+          symbols = LazyVim.config.get_kind_filter(),
+        })
+      end,
       desc = "Goto Symbol (Workspace)",
     },
   },
   opts = {
     defaults = {
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+        "--no-ignore",
+        "--follow", --follow symlinks
+        -- "-u", -- 1 u will include gitignore in search
+        -- "-u", -- 2 u will include hidden files in search  -- 3 u will include binary files
+      },
       prompt_prefix = " ",
       selection_caret = " ",
       mappings = {
@@ -74,12 +69,12 @@ return {
           ["<a-i>"] = function()
             local action_state = require("telescope.actions.state")
             local line = action_state.get_current_line()
-            Util.telescope("find_files", { no_ignore = true, default_text = line })()
+            LazyVim.pick("find_files", { no_ignore = true, default_text = line })()
           end,
           ["<a-h>"] = function()
             local action_state = require("telescope.actions.state")
             local line = action_state.get_current_line()
-            Util.telescope("find_files", { hidden = true, default_text = line })()
+            LazyVim.pick("find_files", { hidden = true, default_text = line })()
           end,
           ["<C-Down>"] = function(...)
             return require("telescope.actions").cycle_history_next(...)
