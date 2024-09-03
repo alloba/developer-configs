@@ -1,10 +1,8 @@
 .idea
 
-# packer folder
-.config/nvim/plugin
-
-# nvim appimage dir 
-.config/nvim/nvim
-
 # bitwarden local password storage
 .bw_pass
+
+# lazy vim auto-generated files. 
+.config/nvim/lazy-lock.json
+.config/nvim/lazyvim.json
