@@ -73,6 +73,7 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 if type pyenv &> /dev/null; then export PATH="$PYENV_ROOT/bin:$PATH"; fi
 if type pyenv &> /dev/null; then eval "$(pyenv init -)"; fi
+if type pyenv &> /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 
 # Aliases
