@@ -24,7 +24,10 @@ AWS_BW_ENTRY_ID = '5cda22c2-1662-4d44-8f4f-afcb00ffc123'
 def determine_if_logged_in():
     result = subprocess.run(['bw', 'login', '--check'], text=True, capture_output=True)
     if result.returncode != 0 and "not logged in" not in result.stderr:
-        raise Exception(f'Unable to determine BW logged in status:\nErr: {result.stderr}')
+        print('-- Unable to determined BW logged in status. Are you running in a virtual environment? --')
+        print(result.stderr)
+        print(result.stdout)
+        raise Exception(f'Unable to determine BW logged in status')
     if 'You are logged in' in result.stdout:
         return True
     else:
