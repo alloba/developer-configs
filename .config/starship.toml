@@ -1,4 +1,4 @@
-command_timeout = 1000 #sometimes there's a zsh git plugin timeout with the default 500ms
+command_timeout = 2000 #sometimes there's a zsh git plugin timeout with the default 500ms
 
 [aws]
 symbol = "  "
