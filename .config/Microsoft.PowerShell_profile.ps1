@@ -6,6 +6,6 @@
 # This has barely ever helped me, and has caused a subtle bug in a game. So not changing it. 
 # $env:XDG_CONFIG_HOME = 'C:\Users\alexl\.config'
 
-$PSStyle.FileInfo.Directory = "`e[4;1m"
+$PSStyle.FileInfo.Directory = "`e[36m"
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\dracula.omp.json" | Invoke-Expression
 
