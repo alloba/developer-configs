@@ -1,9 +1,9 @@
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
-  enabled = function()
-    return LazyVim.pick.want() == "telescope"
-  end,
+--  enabled = function()
+--    return LazyVim.pick.want() == "telescope"
+--  end,
   tag = "0.1.8", -- telescope seems specific about its tagging or something. lazy docs and telescope readme recommend two separate, equally specific configs
   keys = {
     -- find

@@ -4,8 +4,8 @@ return {
     highlight = { enable = true },
     indent = { enable = true },
     ensure_installed = {
-      "bash",
-      "c",
+      -- "bash",
+      -- "c",
       "diff",
       "html",
       "javascript",
@@ -26,7 +26,8 @@ return {
       "vim",
       "vimdoc",
       "yaml",
-      "kotlin"
+      "kotlin",
+      "java",
     },
     incremental_selection = {
       enable = true,
@@ -46,5 +47,5 @@ return {
         goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
       },
     },
-  }
+  },
 }
