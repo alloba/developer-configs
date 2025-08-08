@@ -1,0 +1,39 @@
+# launch pwsh with admin rights to allow silent installation 
+# NOTE - wavelink will snap in half if you install it while the mic is plugged in. so UNPLUG THE MIC
+
+winget install --silent Mozilla.Firefox
+winget install --silent Git.Git
+winget install --silent Discord.Discord
+winget install --silent Valve.Steam 
+winget install --silent Elgato.WaveLink
+winget install --silent Neovim.Neovim
+winget install --silent JanDeDobbeleer.OhMyPosh
+winget install --silent Microsoft.PowerShell
+winget install --silent Logitech.OptionsPlus
+winget install --silent JetBrains.IntelliJIDEA.Ultimate
+
+
+
+#restart shell here to register git and swap to updated powershell
+#admin permissions required for symlink
+#git commands assume proper .ssh folder setup (which is not stored in this project)
+
+
+
+mkdir -Force ${HOME}/projects
+mkdir -Force ${HOME}/.config
+
+cd ${HOME}/projects
+git clone git@github.com:alloba/developer-configs.git
+git clone git@github.com:alloba/wallpapers.git
+
+New-Item -ItemType SymbolicLink -Target ${HOME}/projects/developer-configs/.config/nvim -Path ${HOME}/.config/nvim
+mkdir -Force ${HOME}/OneDrive/Documents/Powershell
+cp ${HOME}/projects/developer-configs/.config/Microsoft.PowerShell_profile.ps1 ${HOME}/OneDrive/Documents/Powershell
+mkdir -Force "C:\Program Files\Common Files\VST3"
+cp ${HOME}/projects/developer-configs/microphone_vst/VST3/* "C:\Program Files\Common Files\VST3"
+
+
+#check for system updates and restart at this point. 
+#manually point wavelink to vst2 files in this repo.
+#fiddle with app options and startup settings and whatever else. 
