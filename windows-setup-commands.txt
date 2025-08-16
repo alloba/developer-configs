@@ -13,6 +13,7 @@ winget install --silent Logitech.OptionsPlus
 winget install --silent Spotify.Spotify
 winget install --silent Microsoft.PowerToys
 winget install --silent JetBrains.Toolbox
+winget install --silent AntibodySoftware.WizTree
 
 #restart shell here to register git and swap to updated powershell
 #admin permissions required for symlink
