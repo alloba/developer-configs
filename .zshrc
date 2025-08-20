@@ -86,9 +86,15 @@ if type fd     &> /dev/null; then alias ffd="fd -t d . $HOME | fzf"; fi
 if type bat    &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-Dark"; fi
 
 # LabelInsight tooling for assume-role in aws.
-[[ -s $HOME/projects/li-users/scripts/awsli ]] && alias awsli="~/projects/li-users/scripts/awsli"
-[[ -s $HOME/projects/li-users/scripts/awsenv ]] && alias awsenv="~/projects/li-users/scripts/awsenv"
-if type bw &> /dev/null && type awsli &> /dev/null; then alias awsli="~/projects/personal/developer-configs/scripts/awsli_shortcut.sh"; fi
+#[[ -s $HOME/projects/li-users/scripts/awsli ]] && alias awsli="~/projects/li-users/scripts/awsli"
+#[[ -s $HOME/projects/li-users/scripts/awsenv ]] && alias awsenv="~/projects/li-users/scripts/awsenv"
+#if type bw &> /dev/null && type awsli &> /dev/null; then alias awsli="~/projects/personal/developer-configs/scripts/awsli_shortcut.sh"; fi
+
+function notes-commit {
+  git -C $HOME/projects/obsidian add .
+  git -C $HOME/projects/obsidian commit -m "notes"
+  git -C $HOME/projects/obsidian push 
+}
 
 # Fuzzy find all directories under HOME and switch to the one selected.
 function cfd {
