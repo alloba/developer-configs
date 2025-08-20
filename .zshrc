@@ -79,7 +79,7 @@ if type pyenv &> /dev/null; then eval "$(pyenv init -)"; fi
 # Aliases
 alias ls="ls -lha --color"
 alias cdp="cd ~/projects/"
-alias cdo="cd ~/projects/personal/obsidian/"
+alias cdo="cd ~/projects/obsidian/"
 if type nvim   &> /dev/null; then export EDITOR="nvim"; fi
 if type nvim   &> /dev/null; then export EDITOT="nvim"; fi
 if type fd     &> /dev/null; then alias ff="fd . $HOME | fzf"; fi
