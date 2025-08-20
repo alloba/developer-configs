@@ -80,7 +80,8 @@ if type pyenv &> /dev/null; then eval "$(pyenv init -)"; fi
 alias ls="ls -lha --color"
 alias cdp="cd ~/projects/"
 alias cdo="cd ~/projects/personal/obsidian/"
-if type nvim   &> /dev/null; then alias vim="nvim"; fi
+if type nvim   &> /dev/null; then export EDITOR="nvim"; fi
+if type nvim   &> /dev/null; then export EDITOT="nvim"; fi
 if type fd     &> /dev/null; then alias ff="fd . $HOME | fzf"; fi
 if type fd     &> /dev/null; then alias ffd="fd -t d . $HOME | fzf"; fi
 if type bat    &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-Dark"; fi
