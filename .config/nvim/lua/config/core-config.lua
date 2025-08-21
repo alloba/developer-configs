@@ -33,3 +33,15 @@ vim.opt.mouse = "a" -- enable mouse for scrolling and resizing
 vim.opt.autoread = true -- automatically reread unmodified files in nvim
 vim.opt.history = 10000 -- large undo history (10k is neovim's default)
 vim.opt.termguicolors = true -- enable 24bit RGB color in TUI
+
+
+-- Share clipboard 
+-- Todo - make h
+if vim.fn.has("unnamedplus") == 1 then
+  vim.opt.clipboard = "unnamedplus"
+else
+  -- Fallback to 'unnamed' if 'unnamedplus' is not available
+  -- This might be useful on systems where the '+' register isn't supported.
+  -- You might also choose to do nothing if 'unnamedplus' isn't available.
+  vim.opt.clipboard = "unnamed"
+end
