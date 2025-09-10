@@ -43,6 +43,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 [ -d $HOME/bin ] && PATH=$HOME/bin:$PATH
 [ -d $HOME/tools ] && PATH=$HOME/tools:$PATH  # any manually downloaded tools that i want to have on the path
+[ -d $HOME/work-projects/scripts-and-bits ] && PATH=$HOME/work-projects/scripts-and-bits:$PATH  # custom code for work things
 [ -d "/home/linuxbrew/.linuxbrew/bin" ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"  # brew for linux config, if installed.
 
 
@@ -85,6 +86,7 @@ if type nvim   &> /dev/null; then export EDITOR="nvim"; fi
 if type nvim   &> /dev/null; then export EDITOT="nvim"; fi
 if type fd     &> /dev/null; then alias ff="fd . $HOME | fzf"; fi
 if type fd     &> /dev/null; then alias ffd="fd -t d . $HOME | fzf"; fi
+if type bat    &> /dev/null; then alias ccat="/bin/cat"; fi  # sometimes i want cat without the formatting.
 if type bat    &> /dev/null; then alias cat="bat --paging=never --theme=Coldark-Dark"; fi
 
 # LabelInsight tooling for assume-role in aws.
