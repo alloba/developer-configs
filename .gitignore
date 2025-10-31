@@ -1,8 +1,5 @@
 .idea
 
-# bitwarden local password storage
-.bw_pass
-
 # lazy vim auto-generated files. 
 .config/nvim/lazy-lock.json
 .config/nvim/lazyvim.json
