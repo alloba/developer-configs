@@ -1,8 +1,8 @@
 command_timeout = 5000 #sometimes there's a zsh git plugin timeout with the default 500ms
 
 [aws]
-symbol = "  "
-disabled = false
+symbol = " "
+disabled = true # this will always show if you have an aws profile configured, which is annoying to look at.
 
 [directory]
 read_only = " "
