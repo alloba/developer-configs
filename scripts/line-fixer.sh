@@ -7,6 +7,8 @@
 #
 # Requires dos-2-unix be installed. 
 
+if ! type dos-2-unix &> /dev/null; then echo "dos2unix not detected on path. please install" && exit 1; fi
+
 if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     echo "line-fixer.sh {folder_path} to convert all in folder."
     echo "  Leave path blank to convert current directory."
